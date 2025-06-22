@@ -209,7 +209,7 @@ function Landing() {
 
       <footer className="flex justify-between items-center py-6 w-full shrink-0 px-4 md:px-6 border-t border-gray-200 dark:border-gray-800">
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          © 2024 Trimora. All rights reserved.
+          © 2025 Trimora. All rights reserved.
         </p>
         <div className="flex gap-4">
             <Link to="/about" className="text-xs text-gray-500 hover:underline">About</Link>

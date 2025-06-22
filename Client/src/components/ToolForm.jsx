@@ -7,7 +7,7 @@ import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 const ToolForm = () => {
-  const { addTool } = useTools();
+  const { addTool, tools } = useTools();
 
   const [name, setName] = useState('');
   const [cost, setCost] = useState('');
@@ -65,7 +65,9 @@ const ToolForm = () => {
     if (!name || !cost || !renewalDate || !category) {
       return alert("Please complete all fields.");
     }
-
+    if (tools.some(tool => tool.name.trim().toLowerCase() === name.trim().toLowerCase())) {
+      return alert(`You have already added a tool named '${name}'. Remove it first to add again.`);
+    }
     const newTool = {
       id: Date.now(),
       name,
@@ -74,11 +76,8 @@ const ToolForm = () => {
       usage,
       category,
     };
-
     addTool(newTool);
-
     alert(`✅ ${name} added to your tool list.`);
-
     setName('');
     setCost('');
     setAnnualCost('');
